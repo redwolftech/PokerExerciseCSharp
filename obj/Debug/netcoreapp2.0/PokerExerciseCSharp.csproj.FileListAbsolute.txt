@@ -1,0 +1,10 @@
+/Users/mtoney/Dotnet/PokerExerciseCSharp/bin/Debug/netcoreapp2.0/PokerExerciseCSharp.deps.json
+/Users/mtoney/Dotnet/PokerExerciseCSharp/bin/Debug/netcoreapp2.0/PokerExerciseCSharp.runtimeconfig.json
+/Users/mtoney/Dotnet/PokerExerciseCSharp/bin/Debug/netcoreapp2.0/PokerExerciseCSharp.runtimeconfig.dev.json
+/Users/mtoney/Dotnet/PokerExerciseCSharp/bin/Debug/netcoreapp2.0/PokerExerciseCSharp.dll
+/Users/mtoney/Dotnet/PokerExerciseCSharp/bin/Debug/netcoreapp2.0/PokerExerciseCSharp.pdb
+/Users/mtoney/Dotnet/PokerExerciseCSharp/obj/Debug/netcoreapp2.0/PokerExerciseCSharp.csproj.CoreCompileInputs.cache
+/Users/mtoney/Dotnet/PokerExerciseCSharp/obj/Debug/netcoreapp2.0/PokerExerciseCSharp.AssemblyInfoInputs.cache
+/Users/mtoney/Dotnet/PokerExerciseCSharp/obj/Debug/netcoreapp2.0/PokerExerciseCSharp.AssemblyInfo.cs
+/Users/mtoney/Dotnet/PokerExerciseCSharp/obj/Debug/netcoreapp2.0/PokerExerciseCSharp.dll
+/Users/mtoney/Dotnet/PokerExerciseCSharp/obj/Debug/netcoreapp2.0/PokerExerciseCSharp.pdb
