@@ -190,18 +190,24 @@ namespace PokerExerciseCSharp
             private void CheckStraight()
             {
                 // Holds the total difference in values between cards (cards are already sorted by value)
-                int diffCount = 0;
-                // Calculate total difference in card values between cards
-                for (int numCard=2; numCard<=5; numCard++)
+                int[] diffCount = new int[4];
+                // Calculate difference in card values between cards
+                for (int numCard = 2; numCard <= 5; numCard++)
                 {
-                    diffCount += cards[numCard-1].face - cards[numCard-2].face;
+                    diffCount[numCard - 2] = cards[numCard - 1].face - cards[numCard - 2].face;
                 }
-                if (diffCount == 4) // Each card is different by a value of 1
-                    rank = HandRank.Straight;
-                if (diffCount == 12 && cards[4].face == CardFace.Ace && cards[0].face == CardFace.Two) // Special case for Ace at the start of a straight
-                    rank = HandRank.Straight;
+                if (diffCount[0] == 1 && diffCount[1] == 1 && diffCount[2] == 1 && diffCount[3] ==1)
+                {
+                    rank = HandRank.Straight; // Each card is 1 away from the next card
+                }
+                if (cards[0].face == CardFace.Two && cards[1].face == CardFace.Three && cards[2].face == CardFace.Four && cards[3].face == CardFace.Five && cards[4].face == CardFace.Ace)
+                {
+                    rank = HandRank.Straight; // Special case for Ace at the start of a straight
+                }
                 if (rank == HandRank.Straight)
+                {
                     highCard = cards[4].face; // Set high card
+                }
             }
 
             // Private method to check rank - "Flush"
@@ -274,20 +280,27 @@ namespace PokerExerciseCSharp
                 if (rank == HandRank.Flush) // If at least flush, check for straight or royal
                 {
                     // Holds the total difference in values between cards (cards are already sorted by value)
-                    int diffCount = 0;
-                    // Calculate total difference in card values between cards
-                    for (int numCard=2; numCard<=5; numCard++)
+                    int[] diffCount = new int[4];
+                    // Calculate difference in card values between cards
+                    for (int numCard = 2; numCard <= 5; numCard++)
                     {
-                        diffCount += cards[numCard-1].face - cards[numCard-2].face;
+                        diffCount[numCard - 2] = cards[numCard - 1].face - cards[numCard - 2].face;
                     }
-                    if (diffCount == 12 && cards[4].face == CardFace.Ace && cards[0].face == CardFace.Two) // Special case for Ace at the start of a straight
-                        rank = HandRank.StraightFlush;
-                    if (diffCount == 4 && cards[4].face != CardFace.Ace) // Standard straight flush
-                        rank = HandRank.StraightFlush;
-                    if (diffCount == 4 && cards[4].face == CardFace.Ace) // Ace at the end of the straight makes it a royal flush
-                        rank = HandRank.RoyalFlush;
-                    if (rank == HandRank.StraightFlush || rank == HandRank.RoyalFlush)
+                    if (cards[0].face == CardFace.Two && cards[1].face == CardFace.Three && cards[2].face == CardFace.Four && cards[3].face == CardFace.Five && cards[4].face == CardFace.Ace)
+                    {
+                        rank = HandRank.StraightFlush; // Special case for Ace at the start of a straight
+                    }
+                    if ((diffCount[0] == 1 && diffCount[1] == 1 && diffCount[2] == 1 && diffCount[3] ==1) && cards[4].face != CardFace.Ace)
+                    {
+                        rank = HandRank.StraightFlush; // Standard straight flush
+                    }
+                    if ((diffCount[0] == 1 && diffCount[1] == 1 && diffCount[2] == 1 && diffCount[3] ==1) && cards[4].face == CardFace.Ace)
+                    {
+                        rank = HandRank.RoyalFlush; // Ace at the end of a straight makes it a royal flush
+                    }
+                    if (rank == HandRank.StraightFlush || rank == HandRank.RoyalFlush) {
                         highCard = cards[4].face; // Set high card
+                    }
                 }
             }
 
